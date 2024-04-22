@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿QUIÉN ES DAIRA?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: #ff69b4;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .flowchart {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #ff69b4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #d94086;
+    }
+
+    .message {
+      margin-top: 20px;
+      text-align: center;
+      color: red;
+    }
+
+    #dairaImage {
+      max-width: 100%;
+      height: auto;
+      display: none;
+      margin: 20px auto;
+    }
+
+    #dairaDescription {
+      display: none;
+      color: black;
+      font-style: italic;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>¿QUIÉN ES DAIRA?</h1>
+    <div id="flowchart" class="flowchart">
+      <button onclick="askIsDaira()">Iniciar</button>
+    </div>
+    <div id="message" class="message"></div>
+    <img id="dairaImage" src="https://i.postimg.cc/h4XmY4S6/Whats-App-Image-2024-04-21-at-5-29-38-PM.jpg" alt="Imagen de Daira">
+    <p id="dairaDescription">Ella es Daira: <br> <span style="color:black; font-style:italic;">Con la esencia del saber, <br> Maestra de corazón,<br> Noble de espíritu,<br> Melodía de alegría y <br> Guerrera en la lucha de la equidad</span></p>
+  </div>
+
+  <script>
+    function askIsDaira() {
+      document.getElementById('message').innerHTML = "";
+      var isDaira = confirm("¿Lista para conocerte?");
+      if (isDaira) {
+        showOptions();
+      } else {
+        document.getElementById('message').innerHTML = "Entonces no es Daira, selecciona la opción correcta";
+      }
+      setTimeout(function() {
+        document.getElementById('message').innerHTML = "";
+      }, 5000);
+    }
+
+    function showOptions() {
+      var flowchartDiv = document.getElementById('flowchart');
+      flowchartDiv.innerHTML = `
+        <p>¿Brilla con la luz del conocimiento?</p>
+        <button onclick="isIntelligent()">Sí</button>
+        <button onclick="isNotIntelligent()">No</button>
+      `;
+    }
+
+    function isIntelligent() {
+      var flowchartDiv = document.getElementById('flowchart');
+      flowchartDiv.innerHTML = `
+        <p>¿Guía mentes con su creatividad?</p>
+        <button onclick="isTeacher()">Sí</button>
+        <button onclick="isNotTeacher()">No</button>
+      `;
+    }
+
+    function isNotIntelligent() {
+      document.getElementById('message').innerHTML = "Entonces no es Daira, selecciona la opción correcta";
+      setTimeout(function() {
+        document.getElementById('message').innerHTML = "";
+      }, 5000);
+    }
+
+    function isTeacher() {
+      var flowchartDiv = document.getElementById('flowchart');
+      flowchartDiv.innerHTML = `
+        <p>¿Su alma irradia nobleza?</p>
+        <button onclick="isNoble()">Sí</button>
+        <button onclick="isNotNoble()">No</button>
+      `;
+    }
+
+    function isNotTeacher() {
+      document.getElementById('message').innerHTML = "Entonces no es Daira, selecciona la opción correcta";
+      setTimeout(function() {
+        document.getElementById('message').innerHTML = "";
+      }, 5000);
+    }
+
+    function isNoble() {
+      var flowchartDiv = document.getElementById('flowchart');
+      flowchartDiv.innerHTML = `
+        <p>¿Sus risas danzan con el viento?</p>
+        <button onclick="laughsALot()">Sí</button>
+        <button onclick="doesNotLaugh()">No</button>
+      `;
+    }
+
+    function isNotNoble() {
+      document.getElementById('message').innerHTML = "Entonces no es Daira, selecciona la opción correcta";
+      setTimeout(function() {
+        document.getElementById('message').innerHTML = "";
+      }, 5000);
+    }
+
+    function laughsALot() {
+      var flowchartDiv = document.getElementById('flowchart');
+      flowchartDiv.innerHTML = `
+        <p>¿Defensora de la equidad?</p>
+        <button onclick="isFeminist()">Sí</button>
+        <button onclick="isNotFeminist()">No</button>
+      `;
+    }
+
+    function doesNotLaugh() {
+      document.getElementById('message').innerHTML = "Entonces no es Daira, selecciona la opción correcta";
+      setTimeout(function() {
+        document.getElementById('message').innerHTML = "";
+      }, 5000);
+    }
+
+    function isNotFeminist() {
+      document.getElementById('message').innerHTML = "Entonces no es Daira, selecciona la opción correcta";
+      setTimeout(function() {
+        document.getElementById('message').innerHTML = "";
+      }, 5000);
+    }
+    
+    function isFeminist() {
+      document.getElementById('dairaImage').style.display = 'block';
+      document.getElementById('dairaDescription').style.display = 'block';
+    }
+
+  </script>
+</body>
+</html>
